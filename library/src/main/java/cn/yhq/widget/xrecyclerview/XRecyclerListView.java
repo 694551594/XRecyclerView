@@ -7,13 +7,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.markmao.pulltorefresh.widget.XFooterView;
-
-import cn.yhq.dialog.utils.DisplayUtils;
-
-import static com.markmao.pulltorefresh.widget.XFooterView.STATE_LOADING;
-import static com.markmao.pulltorefresh.widget.XFooterView.STATE_NOMORE;
-import static com.markmao.pulltorefresh.widget.XFooterView.STATE_NORMAL;
+import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_LOADING;
+import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_NOMORE;
+import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_NORMAL;
 
 /**
  * Created by 杨慧强 on 2016/2/23.
