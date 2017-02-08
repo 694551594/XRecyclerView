@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -30,4 +31,13 @@ dependencies {
     compile 'cn.yhq:android-recycler-adapter:1.3.0'
     compile 'cn.yhq:utils:1.0'
     testCompile 'junit:junit:4.12'
+}
+
+publish {
+    userOrg = '694551594'
+    groupId = 'cn.yhq'
+    artifactId = 'XRecyclerView'
+    publishVersion = '1.0'
+    desc = 'XRecyclerView'
+    website = 'https://github.com/694551594/XRecyclerView'
 }
