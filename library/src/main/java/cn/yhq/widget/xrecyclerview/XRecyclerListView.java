@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import cn.yhq.utils.DisplayUtils;
+
 import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_LOADING;
 import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_NOMORE;
 import static cn.yhq.widget.xrecyclerview.XFooterView.STATE_NORMAL;
