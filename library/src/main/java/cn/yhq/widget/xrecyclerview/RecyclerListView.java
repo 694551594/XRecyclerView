@@ -11,7 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cn.yhq.dialog.utils.DisplayUtils;
+import cn.yhq.utils.DisplayUtils;
+
 
 /**
  * listview，可以设置方向
