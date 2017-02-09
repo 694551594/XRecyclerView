@@ -24,9 +24,9 @@ import android.widget.ExpandableListView;
  * A class equivalent to {@link ExpandableListView ExpandableListView} with the {@code RecyclerView}
  * features.
  * <p>
- * You must use an {@link cn.yhq.widget.ExpandableRecyclerView.ExpandableAdapter}
+ * You must use an {@link cn.yhq.widget.xrecyclerview.ExpandableRecyclerView.ExpandableAdapter}
  * instead of a {@link RecyclerView.Adapter} and an
- * {@link cn.yhq.widget.ExpandableRecyclerView.ExpandableViewHolder} instead of a
+ * {@link cn.yhq.widget.xrecyclerview.ExpandableRecyclerView.ExpandableViewHolder} instead of a
  * {@link RecyclerView.ViewHolder}.
  * </p>
  * <p>
@@ -440,7 +440,7 @@ public class ExpandableRecyclerView extends BaseRecyclerView {
         /**
          * Specify the stable ID mode used by this adapter. This is the mode to handle the stable ID
          * used to recover the position. It replaces
-         * {@link cn.yhq.widget.ExpandableRecyclerView.ExpandableAdapter#hasStableIds()}
+         * {@link cn.yhq.widget.xrecyclerview.ExpandableRecyclerView.ExpandableAdapter#hasStableIds()}
          * by allowing a {@code Parcelable} rather than a {@code long}.
          * <p>
          * It can be {@link #STABLE_IDS_NONE}, {@link #STABLE_IDS_LONG} or
