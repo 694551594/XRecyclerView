@@ -23,16 +23,19 @@ public class RecyclerListView extends BaseRecyclerView {
 
     public RecyclerListView(Context context) {
         super(context);
-        setOrientation(LinearLayoutManager.VERTICAL);
     }
 
     public RecyclerListView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setOrientation(LinearLayoutManager.VERTICAL);
     }
 
     public RecyclerListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    @Override
+    protected void init(Context context, AttributeSet attrs) {
+        super.init(context, attrs);
         setOrientation(LinearLayoutManager.VERTICAL);
     }
 

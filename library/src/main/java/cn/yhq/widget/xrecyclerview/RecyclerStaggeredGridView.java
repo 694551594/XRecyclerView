@@ -1,6 +1,7 @@
 package cn.yhq.widget.xrecyclerview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 
@@ -9,6 +10,7 @@ import android.util.AttributeSet;
  */
 
 public class RecyclerStaggeredGridView extends BaseRecyclerView {
+    private int columnCount;
 
     public RecyclerStaggeredGridView(Context context) {
         super(context);
@@ -55,6 +57,24 @@ public class RecyclerStaggeredGridView extends BaseRecyclerView {
         return maxPosition;
     }
 
+    @Override
+    protected void init(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            // list the attributes we want to fetch
+            // columnWidth is what GridView uses, so we use it too
+            int[] attrsArray = {
+                    columnCount
+            };
+
+            TypedArray array = context.obtainStyledAttributes(attrs, attrsArray);
+
+            //retrieve the value of the 0 index, which is columnWidth
+            columnCount = array.getDimensionPixelSize(0, -1);
+            array.recycle();
+        }
+
+        setup(columnCount, VERTICAL);
+    }
 
     /**
      * 获得当前展示最小的position
@@ -69,6 +89,11 @@ public class RecyclerStaggeredGridView extends BaseRecyclerView {
             minPosition = Math.min(minPosition, positions[i]);
         }
         return minPosition;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+        ((StaggeredGridLayoutManager) getLayoutManager()).setSpanCount(columnCount);
     }
 
     public void setup(int spanCount, int orientation) {

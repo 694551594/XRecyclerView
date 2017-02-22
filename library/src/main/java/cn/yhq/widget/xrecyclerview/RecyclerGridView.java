@@ -1,6 +1,7 @@
 package cn.yhq.widget.xrecyclerview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.AttributeSet;
 
@@ -8,12 +9,14 @@ import android.util.AttributeSet;
  * Created by 杨慧强 on 2016/2/23.
  */
 public class RecyclerGridView extends BaseRecyclerView {
+    private int columnCount;
+
     public RecyclerGridView(Context context) {
-        this(context, null);
+        super(context, null);
     }
 
     public RecyclerGridView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs, 0);
     }
 
     public RecyclerGridView(Context context, AttributeSet attrs, int defStyle) {
@@ -27,9 +30,33 @@ public class RecyclerGridView extends BaseRecyclerView {
     }
 
     @Override
+    protected void init(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            // list the attributes we want to fetch
+            // columnWidth is what GridView uses, so we use it too
+            int[] attrsArray = {
+                    columnCount
+            };
+
+            TypedArray array = context.obtainStyledAttributes(attrs, attrsArray);
+
+            //retrieve the value of the 0 index, which is columnWidth
+            columnCount = array.getDimensionPixelSize(0, -1);
+            array.recycle();
+        }
+
+        setup(columnCount, VERTICAL, false);
+    }
+
+    @Override
     public int getLastVisiblePosition() {
         int position = ((GridLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
         return position;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+        ((GridLayoutManager) getLayoutManager()).setSpanCount(columnCount);
     }
 
     public void setup(int spanCount, int orientation, boolean reverseLayout) {

@@ -50,21 +50,21 @@ public abstract class BaseRecyclerView extends RecyclerView {
     };
 
     public BaseRecyclerView(Context context) {
-        this(context, null);
-        init();
+        super(context);
+        init(context, null);
     }
 
     public BaseRecyclerView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-        init();
+        super(context, attrs);
+        init(context, attrs);
     }
 
     public BaseRecyclerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
+    protected void init(Context context, AttributeSet attrs) {
         this.setItemAnimator(new DefaultItemAnimator());
     }
 
