@@ -326,10 +326,16 @@ public abstract class BaseRecyclerView extends RecyclerView {
     }
 
     public void setDividerDecoration(RecyclerView.ItemDecoration itemDecoration) {
-        if (mDividerDecoration != null) {
-            this.removeItemDecoration(mDividerDecoration);
+        if (itemDecoration != null) {
+            if (mDividerDecoration != null) {
+                this.removeItemDecoration(mDividerDecoration);
+                this.addItemDecoration(itemDecoration);
+            }
+        } else {
+            if (mDividerDecoration != null) {
+                this.removeItemDecoration(mDividerDecoration);
+            }
         }
-        this.addItemDecoration(itemDecoration);
         this.mDividerDecoration = itemDecoration;
     }
 

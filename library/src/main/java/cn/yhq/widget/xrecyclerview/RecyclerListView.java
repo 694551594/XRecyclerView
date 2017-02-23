@@ -56,7 +56,23 @@ public class RecyclerListView extends BaseRecyclerView {
         this.setDividerDecoration(new DividerDecoration(getContext()));
     }
 
-    private class DividerDecoration extends RecyclerView.ItemDecoration {
+    public void setDivider(Drawable divider) {
+        RecyclerView.ItemDecoration decoration = this.getDividerDecoration();
+        if (decoration instanceof DividerDecoration) {
+            ((DividerDecoration) decoration).setDivider(divider);
+        }
+        invalidateItemDecorations();
+    }
+
+    public void setDividerHeight(int dividerHeight) {
+        RecyclerView.ItemDecoration decoration = this.getDividerDecoration();
+        if (decoration instanceof DividerDecoration) {
+            ((DividerDecoration) decoration).setDividerHeight(dividerHeight);
+        }
+        invalidateItemDecorations();
+    }
+
+    public static class DividerDecoration extends RecyclerView.ItemDecoration {
         private final int[] ATTRS = new int[]{
                 android.R.attr.listDivider
         };
@@ -82,7 +98,7 @@ public class RecyclerListView extends BaseRecyclerView {
             for (int childViewIndex = 0; childViewIndex < childCount; childViewIndex++) {
                 final View view = parent.getChildAt(childViewIndex);
                 int top = (int) ViewCompat.getY(view) + view.getHeight();
-                int offset = DisplayUtils.dp2Px(getContext(), 0);
+                int offset = DisplayUtils.dp2Px(parent.getContext(), 0);
                 mDivider.setBounds(0 + offset, top, width - offset, top + mDividerHeight);
                 mDivider.draw(c);
             }
@@ -101,12 +117,11 @@ public class RecyclerListView extends BaseRecyclerView {
                 mDividerHeight = 0;
             }
             mDivider = divider;
-            invalidateItemDecorations();
+
         }
 
         public void setDividerHeight(int dividerHeight) {
             mDividerHeight = dividerHeight;
-            invalidateItemDecorations();
         }
     }
 
