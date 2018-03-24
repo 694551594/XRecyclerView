@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -27,9 +27,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'cn.yhq:android-recycler-adapter:1.4.0'
-    compile 'cn.yhq:android-utils:1.1.0'
+    compile 'cn.yhq:android-recycler-adapter:1.5.0'
+    compile 'cn.yhq:android-utils:1.2.0'
     testCompile 'junit:junit:4.12'
 }
 
@@ -37,7 +36,7 @@ publish {
     userOrg = '694551594'
     groupId = 'cn.yhq'
     artifactId = 'XRecyclerView'
-    publishVersion = '1.1.0'
+    publishVersion = '1.2.0'
     desc = 'XRecyclerView'
     website = 'https://github.com/694551594/XRecyclerView'
 }
